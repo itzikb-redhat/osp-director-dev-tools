@@ -56,3 +56,7 @@
         EOF_RSH
       environment:
         <<: *oc_env
+      retries: 20
+      delay: 30
+      register: result
+      until: result.rc == 0
